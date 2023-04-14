@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Contact us Result";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (User.IsInRole("Administrator"))
+{
+    <p>Thank you for your message. An administrator will get back to you shortly.</p>
+}
