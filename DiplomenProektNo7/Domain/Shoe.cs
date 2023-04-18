@@ -21,22 +21,22 @@ namespace DiplomenProektNo7.Domain
         public string Picture { get; set; }
 
         [Required]
-        [Range(0, 5000)]
+        
         public int Quantity { get; set; }
         [Required]
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
 
         [Required]
-        [MaxLength(300)]
+        
         public string Description { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        
         public string Colour { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        
         public string Material { get; set; }
 
         public virtual IEnumerable<Order> Orders { get; set; } = new List<Order>();

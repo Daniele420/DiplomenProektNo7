@@ -39,6 +39,9 @@ namespace DiplomenProektNo7
             // services.AddRazorPages();
             // services.Configure<IdentityOptions>(option =>
 
+            
+            services.AddControllersWithViews();
+
             services.AddTransient<IShoeService, ShoeService>();
 
             services.AddTransient<ICategoryService, CategoryService>();

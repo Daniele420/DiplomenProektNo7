@@ -80,7 +80,7 @@ namespace DiplomenProektNo7.Infrastucture
                 new Category {CategoryName="Running"},
                  new Category {CategoryName="Basketball"},
                  new Category {CategoryName="Football"},
-                 new Category {CategoryName="Mountain"}
+                 new Category {CategoryName="Hiking"}
             });
             dataCategory.SaveChanges();
         }

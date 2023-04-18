@@ -1,34 +1,130 @@
-﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DanieleShoes</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #f5a5b8, #c4d4e8);
+        }
 
-<div class="text-center">
-    <html>
-    <head>
-        <style>
-            h1 {
-                text-shadow: 2px 2px lightblue;
+        .border-fancy {
+            position: relative;
+            display: inline-block;
+        }
+
+            .border-fancy:before, .border-fancy:after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                transition: all 0.3s ease;
             }
-        </style>
-    </head>
-    <body>
 
-        <h1>DanieleShoes</h1>
+            .border-fancy:before {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 2px solid #e7e7e7;
+            }
 
-    </body>
+            .border-fancy:after {
+                top: 10px;
+                left: 10px;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                border: 2px solid #e7e7e7;
+            }
+
+            .border-fancy:hover:before {
+                transform: translate(-5px, -5px);
+                box-shadow: 5px 5px 0 0 dodgerblue;
+            }
+
+            .border-fancy:hover:after {
+                transform: translate(5px, 5px);
+                box-shadow: -5px -5px 0 0 dodgerblue;
+            }
+
+        .btn-shop-now {
+            background-color: dodgerblue;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+
+            .btn-shop-now:hover {
+                background-color: #1C1C1C;
+                cursor: pointer;
+            }
+
+        .rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+            font-size: 36px;
+            display: inline-block;
+        }
+
+        .star {
+            display: inline-block;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+            .star:hover,
+            .star.selected {
+                color: #ff0;
+            }
+    </style>
+    <script>
+        const stars = document.querySelectorAll('.star');
+        let rating;
+
+        stars.forEach(function (star, index) {
+            star.addEventListener('click', function () {
+                rating = index + 1;
+                localStorage.setItem('rating', rating);
+                renderStars();
+            });
+        });
+
+        function renderStars() {
+            const ratingValue = parseInt(localStorage.getItem('rating'));
+
+            stars.forEach(function (star, index) {
+                if (index < ratingValue) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+        }
+
+        renderStars();
+    </script>
+</head>
+
+<body>
+    <div class="text-center py-5">
+        <h1 class="display-3 font-weight-bold text-uppercase mb-4 animate__animated animate__fadeInDown">
+            <span class="border-fancy">DanieleShoes</span>
+        </h1>
+        <p class="lead animate__animated animate__fadeIn">You have passion, we have natural terrain running shoes!</p>
+        <a href="Shoe/Index" class="btn-shop-now mt-4 animate__animated animate__fadeInUp" style="box-shadow: 2px 2px 0 0 lightblue;">Shop now</a>
+    </div>
+
+    <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">
+</body>
 </html>
-    <p><a>Вие имате страст, ние маратонки за бягане по естествен терен!</a></p>
-</div>
-<link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">
 
 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
@@ -37,9 +133,8 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h4>
-                                Можете да носите всичко,<br /> стига да го комбинирате с добър чифт обувки.
-                                
+                            <h4 class="text-center">
+                                You can wear anything,<br/> as long as you pair it with a good pair of shoes.                              
                             </h4>
                            
                         </div>
@@ -53,11 +148,9 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h4>
-                                Обувките нямат значение,<br /> човекът, който ги носи, има значение.
-                            </h4>
-                            
-                            
+                            <h4 class="text-center">
+                                The shoes don't matter,<br/> the person wearing them does.
+                            </h4>                                              
                         </div>
                         <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://media.gq.com/photos/63e2b84fc3e6ea31f7c7dd30/master/pass/best-shoe-brands-nike-asics-celine.jpg" width="440" height="215" class="mx-auto" alt="slide"></div>
                     </div>
@@ -69,13 +162,11 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h4>
-                                Нека мечтите ви надхвърлят обувките на вашите очаквания.
-                            </h4>
-                           
-                            
+                            <h4 class="text-center">
+                                May your dreams exceed the shoes of your expectations.
+                            </h4>                                                  
                         </div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://www.runningxpert.com/media/mageplaza/blog/post/n/i/nike_lineup_hero.jpg" width="440" height="215" class="mx-auto" alt="slide"></div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://www.verywellfit.com/thmb/Uaq6DUhyM5Ei7L-XOgBEOj87tR0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Web_1500-vwt-primary-best-overall-shoe-tstaples-118-671f4e0048e64d14a1c42e4f8d9e6658.jpg" width="440" height="215" class="mx-auto" alt="slide"></div>
                     </div>
                 </div>
             </div>
@@ -85,37 +176,196 @@
 </div>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
+<style>
+    .product-grid {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+        .product-grid .product-image {
+            overflow: hidden;
+            position: relative;
+        }
+
+            .product-grid .product-image a {
+                display: block;
+                position: relative;
+                z-index: 1;
+            }
+
+            .product-grid .product-image img {
+                transition: all 0.3s ease-out 0s;
+            }
+
+            .product-grid .product-image .pic-1 {
+                opacity: 1;
+            }
+
+            .product-grid .product-image:hover img {
+                transform: scale(1.1);
+            }
+
+            .product-grid .product-image .pic-2 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                z-index: 0;
+            }
+
+            .product-grid .product-image:hover .pic-1 {
+                opacity: 0;
+            }
+
+            .product-grid .product-image:hover .pic-2 {
+                display: block;
+            }
+
+        .product-grid .product-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .product-grid .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-grid .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #cc0000;
+            margin-bottom: 10px;
+        }
+
+        .product-grid .description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .product-grid .btn {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+        }
+
+            .product-grid .btn:hover {
+                background-color: #990000;
+            }
+
+        .product-grid .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-grid .description {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-grid .name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-grid .item {
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+            .product-grid .item:hover {
+                box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+    .stars {
+        display: inline-block;
+         color: black;
+        font-size: 0;
+        cursor: pointer;
+    }
+
+    ul.social-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: flex-start;
+    }
+
+        ul.social-icons li {
+            margin: 0 10px;
+        }
+
+    .star {
+        font-size: 24px;
+        color: gray;
+        cursor: pointer;
+    }
+
+        .star:hover,
+        .star:hover ~ .star {
+            color: yellow;
+        }
+
+    .pic-1, .pic-2 {
+        border-radius: 20%;
+    }
+</style>
+<html>
+    
 <div class="container">
+
     <div class="row">
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
                     
                     <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg">
+                        <img class="pic-1" src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" height="230" width="200">
                         
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg">
+                        <img class="pic-2" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/93c5dd14-3f2c-4150-8c9c-983726f633e1/zoom-fly-5-road-running-shoes-hTNv2r.png" height="230" width="200">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
+                    <p>
+
+                    </p>
+                    <ul class="social-icons align-items-center">
+  <li><a href="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" data-tip="Quick View" class="quick-view"><i class="fa fa-search"></i></a></li>
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" alt="Big Image">
+    </div>
+  </div>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-info"></i></a></li>
+  <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+</ul>
+                        
                     <span class="product-new-label">Sale</span>
                     <span class="product-discount-label">20%</span>
                 </div>
-                <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star disable"></li>
-                </ul>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">Women's Blouse</a></h3>
+                <body>
+                    <div class="rating">
+                        <span class="star" data-rating="1">&#9733;</span>
+                        <span class="star" data-rating="2">&#9733;</span>
+                        <span class="star" data-rating="3">&#9733;</span>
+                        <span class="star" data-rating="4">&#9733;</span>
+                        <span class="star" data-rating="5">&#9733;</span>
+                    </div>
+                </body>
+                <div class="product-content text-center">
+                    <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
-                        $16.00
-                        <span>$20.00</span>
+                        
+                        <span>220 lv.</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
@@ -124,30 +374,44 @@
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
+
                     <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-3.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-4.jpg">
+                        <img class="pic-1" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c76e2119-acb7-4944-9085-d4f5ae2bda4a/go-flyease-easy-on-off-shoes-4bM44t.png" height="230" width="200">
+
+                        <img class="pic-2" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e38ad395-18da-4d12-8b76-9336e12f7ab6/go-flyease-easy-on-off-shoes-4bM44t.png" height="230" width="200">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <p>
+
+                    </p>
+                    <ul class="social-icons">
+                        <li><a href="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c76e2119-acb7-4944-9085-d4f5ae2bda4a/go-flyease-easy-on-off-shoes-4bM44t.png" data-tip="Quick View" class="quick-view"><i class="fa fa-search"></i></a></li>
+                        <div class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c76e2119-acb7-4944-9085-d4f5ae2bda4a/go-flyease-easy-on-off-shoes-4bM44t.png" alt="Big Image">
+                            </div>
+                        </div>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-info"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
+
                     <span class="product-new-label">Sale</span>
-                    <span class="product-discount-label">50%</span>
+                    <span class="product-discount-label">20%</span>
                 </div>
-                <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                </ul>
+                <body>
+                    <div class="rating">
+                        <span class="star" data-rating="1">&#9733;</span>
+                        <span class="star" data-rating="2">&#9733;</span>
+                        <span class="star" data-rating="3">&#9733;</span>
+                        <span class="star" data-rating="4">&#9733;</span>
+                        <span class="star" data-rating="5">&#9733;</span>
+                    </div>
+                </body>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                    <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
-                        $5.00
-                        <span>$10.00</span>
+
+                        <span>220 lv.</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
@@ -156,30 +420,44 @@
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
+
                     <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-5.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-6.jpg">
+                        <img class="pic-1" src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" height="230" width="200">
+
+                        <img class="pic-2" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/93c5dd14-3f2c-4150-8c9c-983726f633e1/zoom-fly-5-road-running-shoes-hTNv2r.png" height="230" width="200">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <p>
+
+                    </p>
+                    <ul class="social-icons">
+                        <li><a href="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" data-tip="Quick View" class="quick-view"><i class="fa fa-search"></i></a></li>
+                        <div class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" alt="Big Image">
+                            </div>
+                        </div>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-info"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
+
                     <span class="product-new-label">Sale</span>
-                    <span class="product-discount-label">50%</span>
+                    <span class="product-discount-label">20%</span>
                 </div>
-                <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                </ul>
+                <body>
+                    <div class="rating">
+                        <span class="star" data-rating="1">&#9733;</span>
+                        <span class="star" data-rating="2">&#9733;</span>
+                        <span class="star" data-rating="3">&#9733;</span>
+                        <span class="star" data-rating="4">&#9733;</span>
+                        <span class="star" data-rating="5">&#9733;</span>
+                    </div>
+                </body>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                    <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
-                        $5.00
-                        <span>$10.00</span>
+
+                        <span>220 lv.</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
@@ -188,30 +466,44 @@
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
+
                     <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-7.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-8.jpg">
+                        <img class="pic-1" src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" height="230" width="200">
+
+                        <img class="pic-2" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/93c5dd14-3f2c-4150-8c9c-983726f633e1/zoom-fly-5-road-running-shoes-hTNv2r.png" height="230" width="200">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <p>
+
+                    </p>
+                    <ul class="social-icons">
+                        <li><a href="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" data-tip="Quick View" class="quick-view"><i class="fa fa-search"></i></a></li>
+                        <div class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" alt="Big Image">
+                            </div>
+                        </div>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-info"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
+
                     <span class="product-new-label">Sale</span>
-                    <span class="product-discount-label">50%</span>
+                    <span class="product-discount-label">20%</span>
                 </div>
-                <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                </ul>
+                <body>
+                    <div class="rating">
+                        <span class="star" data-rating="1">&#9733;</span>
+                        <span class="star" data-rating="2">&#9733;</span>
+                        <span class="star" data-rating="3">&#9733;</span>
+                        <span class="star" data-rating="4">&#9733;</span>
+                        <span class="star" data-rating="5">&#9733;</span>
+                    </div>
+                </body>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                    <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
-                        $5.00
-                        <span>$10.00</span>
+
+                        <span>220 lv.</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
@@ -219,4 +511,5 @@
         </div>
     </div>
 </div>
+</html>
 <hr>

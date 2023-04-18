@@ -24,7 +24,6 @@ namespace DiplomenProektNo7.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<DiplomenProektNo7.Models.Shoe.ShoeCreateVM> ShoeCreateVM { get; set; }
         public DbSet<DiplomenProektNo7.Models.Shoe.ShoeIndexVM> ShoeIndexVM { get; set; }
         public DbSet<DiplomenProektNo7.Models.Shoe.ShoeEditVM> ShoeEditVM { get; set; }
         public DbSet<DiplomenProektNo7.Models.Shoe.ShoeDetailsVM> ShoeDetailsVM { get; set; }
@@ -34,7 +33,6 @@ namespace DiplomenProektNo7.Data
         public DbSet<DiplomenProektNo7.Models.Client.ClientIndexVM> ClientIndexVM { get; set; }
         public DbSet<DiplomenProektNo7.Models.Client.ClientDeleteVM> ClientDeleteVM { get; set; }
         public DbSet<DiplomenProektNo7.Models.Statistics.StatisticsVM> StatisticsVM { get; set; }
-        public DbSet<DiplomenProektNo7.Models.ContactUs.ContactViewModel> ContactViewModel { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        public DbSet<ContactMessage> ContactMessages { get; set; }
     }
 }

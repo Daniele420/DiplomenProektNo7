@@ -39,7 +39,7 @@ namespace DiplomenProektNo7.Models.Shoe
         public string Picture { get; set; }
 
         [Required]
-        [Range(0, 5000)]
+        
         [Display(Name = "Quantity")]
         public int Quantity { get; set; }
 
@@ -51,17 +51,17 @@ namespace DiplomenProektNo7.Models.Shoe
         public decimal Discount { get; set; }
 
         [Required]
-        [MaxLength(500)]
+        
         [Display(Name = "Description")]
         public string Description { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        
         [Display(Name = "Colour")]
         public string Colour { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        
         [Display(Name = "Material")]
         public string Material { get; set; }
     }

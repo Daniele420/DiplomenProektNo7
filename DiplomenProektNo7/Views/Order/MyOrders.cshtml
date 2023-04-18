@@ -4,19 +4,106 @@
     ViewData["Title"] = "MyOrders";
 }
 
-<h1>MyOrders</h1>
+<style>
+    body {
+        background: linear-gradient(to right, #f5a5b8, #c4d4e8);
+    }
 
-@*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: lightblue;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background-color: lightblue;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    a {
+        color: #444444;
+        text-decoration: none;
+    }
+
+    .create-link {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .filter-form {
+        margin-bottom: 20px;
+    }
+
+        .filter-form input[type="text"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+
+        .filter-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+    .order-link {
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .order-link:hover {
+            background-color: #3e8e41;
+        }
+
+    .edit-link,
+    .delete-link,
+    .details-link {
+        background-color: #f44336;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .edit-link:hover,
+        .delete-link:hover,
+        .details-link:hover {
+            background-color: #da190b;
+        }
+</style>
+<h1>MyOrders</h1>
 <p>
     <a asp-controller="Shoe" asp-action="Index">Back to shoes</a>
 </p>
-<form asp-controller="Order" asp-action="MyOrders" method="get">
-    <p>
-        Shoe name: <input type="text" name="SearchString" />
+<form asp-controller="Order" asp-action="MyOrders" method="get" class="filter-form">
+    <div>
+        <label for="SearchString">Shoe name:</label>
+        <input type="text" id="SearchString" name="SearchString" />
+    </div>
+    <div>
         <input type="submit" value="Filter" />
-    </p>
+    </div>
 </form>
 <table class="table">
     <thead>

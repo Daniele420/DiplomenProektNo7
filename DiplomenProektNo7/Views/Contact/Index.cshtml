@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DiplomenProektNo7.Models.ContactUs.ContactMessage>
+
+<h1>Contact Messages</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model)
+        {
+            <tr>
+                <td>@message.FirstName</td>
+                <td>@message.LastName</td>
+                <td>@message.Email</td>
+                <td>@message.Comment</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Set a nice font for the headers */
+    h1, th {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Give some space around the table */
+    table {
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    /* Style the table header */
+    th {
+        background-color: lightblue;
+        border: 1px solid #cccccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Style the table rows */
+    td {
+        border: 1px solid #cccccc;
+        padding: 8px;
+    }
+
+    /* Alternate the background color of the rows */
+    tbody tr:nth-child(even) {
+        background-color: lightblue;
+    }
+
+    /* Style the header row */
+    thead tr {
+        border-bottom: 2px solid #cccccc;
+    }
+</style>

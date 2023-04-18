@@ -42,31 +42,5 @@ namespace DiplomenProektNo7.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public async Task<IActionResult> ContactUs(ContactViewModel model)
-        {
-            if (model.Comment == null)
-            {
-                ModelState.AddModelError("Comment", "The comment field is required.");
-                return View(model);
-            }
-
-            // Map the view model to a message model
-            var message = new Message
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                Comment = model.Comment,
-                DateSent = DateTime.UtcNow
-            };
-
-            // Save the message to the database
-            _context.Messages.Add(message);
-            await _context.SaveChangesAsync();
-
-            // Redirect to the home page with a success message
-            TempData["Message"] = "Your message has been sent successfully.";
-            return RedirectToAction(nameof(HomeController.Index), "Home");
-        }
     }
 }

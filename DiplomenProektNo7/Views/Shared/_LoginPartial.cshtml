@@ -2,7 +2,11 @@
 @using DiplomenProektNo7.Domain
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
+<style>
+    body {
+        background: linear-gradient(to right, #f5a5b8, #c4d4e8);
+    }
+</style>
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {

@@ -1,0 +1,150 @@
+﻿@*@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container contact">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="contact-info">
+                <img src="https://www.ruddertape.com/wp-content/uploads/2020/06/3m-intertape-tesa-vibac-sicad-ubic-grade-filament-tape-made-in-china-rudder-tape.jpg" height="150" width="280" alt="image" />
+                <h4>We would love to hear from you !</h4>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="contact-form">
+                <form method="post" action="/Home/ContactUsResult">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="fname">First Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="lname">Last Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="comment">Comment:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form asp-controller="Contact" asp-action="ContactUs" method="post">
+                            <button type="submit">hui</button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+@if (TempData["MessageSent"] != null)
+{
+    <div class="alert">@TempData["MessageSent"]</div>
+}
+
+<div class="contact-info">
+    <h3>Contact Information</h3>
+    <p><i class="fa fa-phone"></i> Telephone: 0876345826</p>
+    <p><i class="fa fa-envelope"></i> Email: d.aleksandrov2018@pmg-pernik.com</p>
+</div>
+
+<form method="post">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" value="@Model.FirstName" required>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" value="@Model.LastName" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" value="@Model.Email" required>
+    </div>
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea class="form-control" name="comment" id="comment" required>@Model.Comment</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+
+        <style>
+            .contact-form {
+max-width: 600px;
+margin: 0 auto;
+padding: 30px;
+background-color: #f9f9f9;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.contact-form h2 {
+margin-bottom: 20px;
+text-align: center;
+font-weight: bold;
+font-size: 28px;
+color: #333;
+}
+
+.alert {
+margin-bottom: 20px;
+padding: 10px;
+background-color: #f44336;
+color: #fff;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 5px;
+font-size: 16px;
+color: #333;
+}
+
+.form-control {
+display: block;
+width: 100%;
+height: 40px;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+color: #333;
+}
+
+.form-control:focus {
+outline: none;
+border-color: #66afe9;
+box-shadow: 0 0 10px rgba(102,175,233,0.6);
+}
+
+
+.contact-info {
+margin-top: 30px
+}
+
+    ul.social-icons p {
+        margin: 0 10px;
+    }
+        </style>

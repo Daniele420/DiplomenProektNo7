@@ -4,10 +4,13 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+<style>
+    body {
+        background: linear-gradient(to right, #f5a5b8, #c4d4e8);
+    }
+</style>
 <h1>Create</h1>
 
-<h4>ShoeCreateVM</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,18 +23,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="BrandId" class="control-label"></label>
-                @*@<input asp-for="BrandId" class="form-control" />*@
+
                 <select asp-for="BrandId" class="form-control text-center">
                     @foreach (var brand in Model.Brands)
                     {
-                        <option value=" @brand.Id">@brand.Name</option>
+                        <option value="@brand.Id">@brand.Name</option>
                     }
                 </select>
                 <span asp-validation-for="BrandId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                @*<input asp-for="CategoryId" class="form-control" />*@
+
                 <select asp-for="CategoryId" class="form-control text-center">
                     @foreach (var category in Model.Categories)
                     {

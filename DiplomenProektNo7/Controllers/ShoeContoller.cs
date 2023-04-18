@@ -171,7 +171,7 @@ namespace DiplomenProektNo7.Controllers
             };
             return View(shoe);
         }
-        public ActionResult Delete(int id) 
+        public ActionResult Delete(int id)
         {
             Shoe item = _shoeService.GetShoeById(id);
             if (item == null)
