@@ -19,26 +19,17 @@ namespace DiplomenProektNo7.Domain
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
         public string Picture { get; set; }
-
         [Required]
-        
         public int Quantity { get; set; }
         [Required]
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
-
         [Required]
-        
         public string Description { get; set; }
-
         [Required]
-        
         public string Colour { get; set; }
-
         [Required]
-        
         public string Material { get; set; }
-
         public virtual IEnumerable<Order> Orders { get; set; } = new List<Order>();
     }
 }

@@ -62,7 +62,7 @@
         }
 
             .btn-shop-now:hover {
-                background-color: #1C1C1C;
+                background-color: lightblue;
                 cursor: pointer;
             }
 
@@ -85,32 +85,7 @@
                 color: #ff0;
             }
     </style>
-    <script>
-        const stars = document.querySelectorAll('.star');
-        let rating;
-
-        stars.forEach(function (star, index) {
-            star.addEventListener('click', function () {
-                rating = index + 1;
-                localStorage.setItem('rating', rating);
-                renderStars();
-            });
-        });
-
-        function renderStars() {
-            const ratingValue = parseInt(localStorage.getItem('rating'));
-
-            stars.forEach(function (star, index) {
-                if (index < ratingValue) {
-                    star.classList.add('selected');
-                } else {
-                    star.classList.remove('selected');
-                }
-            });
-        }
-
-        renderStars();
-    </script>
+    
 </head>
 
 <body>
@@ -337,14 +312,16 @@
                     <p>
 
                     </p>
-                    <ul class="social-icons align-items-center">
+                    <ul class="social-icons text-center">
+                        
   <li><a href="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" data-tip="Quick View" class="quick-view"><i class="fa fa-search"></i></a></li>
-  <div class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png" alt="Big Image">
-    </div>
-  </div>
+                        
+                        <div class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c76e2119-acb7-4944-9085-d4f5ae2bda4a/go-flyease-easy-on-off-shoes-4bM44t.png" alt="Big Image">
+                            </div>
+                        </div>
                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-info"></i></a></li>
   <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 </ul>
@@ -367,7 +344,7 @@
                         
                         <span>220 lv.</span>
                     </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                    
                 </div>
             </div>
         </div>
@@ -407,13 +384,13 @@
                         <span class="star" data-rating="5">&#9733;</span>
                     </div>
                 </body>
-                <div class="product-content">
+                <div class="product-content text-center">
                     <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
 
                         <span>220 lv.</span>
                     </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                    
                 </div>
             </div>
         </div>
@@ -453,13 +430,13 @@
                         <span class="star" data-rating="5">&#9733;</span>
                     </div>
                 </body>
-                <div class="product-content">
+                <div class="product-content text-center">
                     <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
 
                         <span>220 lv.</span>
                     </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                    
                 </div>
             </div>
         </div>
@@ -499,13 +476,13 @@
                         <span class="star" data-rating="5">&#9733;</span>
                     </div>
                 </body>
-                <div class="product-content">
+                <div class="product-content text-center">
                     <h3 class="title"><a href="#">Nike Pegasus 39</a></h3>
                     <div class="price">
 
                         <span>220 lv.</span>
                     </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                    
                 </div>
             </div>
         </div>

@@ -6,8 +6,6 @@ namespace DiplomenProektNo7.Domain
 {
     public class Message
     {
-        internal DateTime DateSent;
-
         public int Id { get; set; }
 
         [Required]
