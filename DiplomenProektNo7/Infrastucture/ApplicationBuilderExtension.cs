@@ -100,7 +100,7 @@ namespace DiplomenProektNo7.Infrastucture
                 new Brand {BrandName="Jordan"},
                 new Brand {BrandName="Reebok"},
                 new Brand {BrandName="Under Armour"},
-                new Brand {BrandName="Sketchers"},
+                new Brand {BrandName="Skechers"},
                 new Brand {BrandName="Salomon"}
             });
             dataBrand.SaveChanges();
